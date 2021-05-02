@@ -1,0 +1,17 @@
+<h1>Latest Blogs</h1>
+
+<p>
+  our blog has <%= Article.public_count %> articles and counting!
+</p>
+
+<%= link_to "Publish Article", new_article_path %>
+
+<ul>
+    <% @articles.each do |article| %>
+      <li>
+        <%= link_to article.title, article %> - 
+        <%= link_to "Edit", edit_article_path(article) %>
+        <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+</ul>
